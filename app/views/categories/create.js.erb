@@ -1,0 +1,41 @@
+var renderedPartial = "<%= j render partial: 'new_category', locals: {category: @category} %>" //Элемент-категория
+var renderComplete = false //Флаг завершения отрисовки категории
+
+//Функция отрисовки категории
+function showCategory(element) {
+    element.slideDown({
+        start: function () {
+            $('#main .btn').prop('disabled', true)
+        },
+        complete: function () {
+            $('#main .btn').prop('disabled', false)
+        }
+    })
+}
+
+//Создание категории
+if ($('#categories .active').length) {
+    $('#categories .active i').last().prev().addClass('fa-minus')
+    if (!($('#categories .active').nextAll()).length) {
+        showCategory($('#categories .active').after(renderedPartial).next())
+    }
+    else {
+        $('#categories .active').nextAll().each(function() {
+            if (parseInt($(this).data('level')) <= parseInt($('#categories .active').data('level'))) {
+                showCategory($(this).before(renderedPartial).prev())
+                renderComplete = true
+                return false
+            }
+        })
+        if (!renderComplete) {
+            showCategory($(renderedPartial).appendTo($('#categories .list-group')))
+        }
+    }
+}
+else {
+    showCategory($(renderedPartial).appendTo($('#categories .list-group')))
+}
+
+//Скрытие модального окна
+$('#addCategory #category_name').val('')
+$('#addCategory').modal('hide')

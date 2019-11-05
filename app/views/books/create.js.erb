@@ -1,0 +1,13 @@
+//Создание книги
+$("<%= j render partial: 'new_book', locals: {book: @book} %>").appendTo($('#books .list-group')).slideDown({
+    start: function () {
+        $('#books .btn').prop('disabled', true)
+    },
+    complete: function () {
+        $('#books .btn').prop('disabled', false)
+    }
+})
+
+//Скрытие модального окна
+$('#addBook #book_name').val('')
+$('#addBook').modal('hide')

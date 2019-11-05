@@ -1,0 +1,6 @@
+// Обновление имени категории
+$('#categories .active span').text("<%= j @category.name %>")
+
+//Скрытие модального окна
+$('#editCategory #category_name').val('')
+$('#editCategory').modal('hide')

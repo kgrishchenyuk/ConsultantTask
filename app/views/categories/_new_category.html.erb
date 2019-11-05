@@ -1,0 +1,8 @@
+<li class="list-group-item" id="<%= category.id %>" data-level="<%= category.level %>" style="display: none;">
+<% (category.level - 1).times { %>
+    <i class="fas fa-fw"></i>
+<% } %>               
+    <i class="fas fa-fw"></i>
+    <i class="fas fa-fw"></i>      
+    <span><%= category.name %></span>
+</li>

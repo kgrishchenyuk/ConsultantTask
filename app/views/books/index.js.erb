@@ -1,0 +1,2 @@
+$('#books .list-group').empty();    //Очищаем окно с книгами
+$('#books .list-group').append("<%= j render partial: 'index', locals: {books: @books} %>") //Отображаем список книг для активной категории

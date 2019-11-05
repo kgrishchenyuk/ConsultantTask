@@ -1,0 +1,12 @@
+$('#books .active').slideUp({
+    start: function() { 
+        $('#books .btn').prop('disabled', true) 
+    },
+    complete: function() {
+        $('#books .active').remove();
+        if (!$('#books .list-group-item').length) {
+            $('#books .list-group').append('<span>This category has no books yet.</span>')
+        }
+        $('#books .btn').prop('disabled', false) 
+    }
+})

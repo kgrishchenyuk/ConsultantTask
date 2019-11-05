@@ -1,0 +1,6 @@
+// Обновление имени книги
+$('#books .active span').text("<%= j @book.name %>")
+
+//Скрытие модального окна
+$('#editBook #book_name').val('')
+$('#editBook').modal('hide')

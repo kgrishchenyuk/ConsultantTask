@@ -1,0 +1,55 @@
+var hasParent = false   //Флаг наличия родительской категории
+var parentElementId     //ID родительской категории
+
+//Функция удаления категории
+function deleteCategories(item) {
+    item.slideUp({
+        start: function() {
+            $('#main .btn').prop('disabled', true)
+        },
+        complete: function() {
+            $(this).remove()
+            if (item.hasClass('active')) {
+                deleteIcon()    //Удаление иконки
+            }
+            $('#main .btn').prop('disabled', false)
+        }
+    })
+}
+
+//Функция удаления иконки раскрытой родительской категории в случае ее наличия и отсутствия в ней дочерних элементов
+function deleteIcon() {
+    if (hasParent) {
+        console.log('Удаление иконки')
+        if ((parseInt($('#categories #' + parentElementId).data('level')) >= parseInt($('#categories #' + parentElementId).next().data('level'))) || !($('#categories #' + parentElementId).next().length)) {
+            $('#categories #' + parentElementId + ' .fa-minus').removeClass('fa-minus')
+            console.log('Иконка удалена')
+        }
+    }
+}
+
+//Проверка на наличие родительской категории и запись ее ID
+if (($('#categories .active').prevAll().length)) {
+    $('#categories .active').prevAll().each(function() {
+        if (parseInt($(this).data('level')) < parseInt($('#categories .active').data('level'))) {
+            console.log('Найдена родительская категория')
+            parentElementId = $(this).attr('id')
+            hasParent = true
+            return false
+        }
+    })
+}
+
+//Удаление активной категории, а также вложенных в нее категорий
+$('#categories .active').nextAll().each(function() {
+    if (parseInt($(this).data('level')) <= parseInt($('#categories .active').data('level'))) {
+        return false
+    }
+    else {
+        deleteCategories($(this));
+    }
+})
+deleteCategories($('#categories .active'));
+
+//Сброс окна с книгами
+$('#books .list-group').empty().append('<span>Choose category first<span>')

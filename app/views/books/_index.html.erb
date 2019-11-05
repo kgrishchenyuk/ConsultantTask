@@ -1,0 +1,15 @@
+<% 
+   if books.exists?
+    books.each do |book| 
+%>
+    <li class="list-group-item" id="<%= book.id %>">
+        <span><%= book.name %></span>
+    </li>
+<%
+    end
+   else 
+%>
+    <span>This category has no books yet.</span>
+<%  
+   end
+%>
