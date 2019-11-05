@@ -33,3 +33,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore Ruby version and RVM files
+.ruby-version
+.rvmrc
