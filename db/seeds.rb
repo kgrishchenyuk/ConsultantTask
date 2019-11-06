@@ -20,6 +20,6 @@ Category.create(name: "Linear Algebra", supercategory_id: 8)
 
 Book.create(name: "War and Peace", category_id: 4)
 Book.create(name: "Fathers and Sons", category_id: 4)
-Book.create(name: "War and Peace", category_id: 4)
+Book.create(name: "Crime and Punishment", category_id: 4)
 Book.create(name: "Romeo and Juliet", category_id: 6)
 Book.create(name: "The Lord of the Rings", category_id: 7)
