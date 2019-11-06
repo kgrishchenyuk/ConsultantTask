@@ -17,7 +17,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # JQuery
 gem 'jquery-rails'
+# Font Awesome
 gem 'font-awesome-sass', '~> 5.11.2'
+# Loofah
+gem "loofah", "~> 2.3.1"
+
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
