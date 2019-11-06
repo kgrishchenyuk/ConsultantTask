@@ -1,5 +1,7 @@
 //Создание книги
-$('#books .list-group').empty()
+if ($('#books .empty').length) {
+    $('#books .list-group').empty()
+}
 $("<%= j render partial: 'new_book', locals: {book: @book} %>").appendTo($('#books .list-group')).slideDown({
     start: function () {
         $('#books .btn').prop('disabled', true)
