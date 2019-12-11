@@ -36,4 +36,5 @@ yarn-debug.log*
 
 # Ignore Ruby version and RVM files
 .ruby-version
+.ruby-gemset
 .rvmrc
