@@ -20,7 +20,7 @@ gem 'jquery-rails'
 # Font Awesome
 gem 'font-awesome-sass', '~> 5.11.2'
 # Loofah
-gem "loofah", "~> 2.3.1"
+gem "loofah", "~> 2.19.1"
 
 
 # Use Redis adapter to run Action Cable in production
